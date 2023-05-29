@@ -1,0 +1,115 @@
+
+:root{
+  --left-bg-color: rgba(76, 76, 150, 0.7);
+  --right-bg-color: rgba(51, 75, 19, 0.7);
+  --left-btn-hover-color: rgba(76, 76, 150);
+  --right-btn-hover-color: rgba(51, 75, 19);
+  --hover-width:75%;
+  --other-width:25%;
+  --speed:1000ms;
+}
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+h1{
+  font-size: 3rem;
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.btn{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  left: 50%;
+  top: 40%;
+  transform: translateX(-50%);
+  text-decoration: none;
+  color: white;
+  border: white solid 0.2rem;
+  font-size: 1rem;
+  width: 15rem;
+  padding: 1rem;
+  text-transform:uppercase;
+
+}
+.split.left .btn:hover{
+  background-color: var(--left-btn-hover-color);
+  border-color: var(--left-btn-hover-color);
+}
+.split.right .btn:hover{
+  background-color: var(--right-btn-hover-color);
+  border-color: var(--right-btn-hover-color);
+}
+.container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: darkgray;
+
+}
+.split{
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+.split.left{
+  left: 0;
+  background: url('https://i4.hurimg.com/i/hurriyet/75/0x0/5ee2a0e467b0a92a78b5e68a.jpg') no-repeat center center/cover ;
+}
+.split.left::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--left-bg-color);
+}
+.split.right,.split.left,.split.right::before,.split.left::before{
+  transition:all var(--speed) ease-in-out ;
+}
+.split.right{
+  right: 0;
+  background: url('https://storage.oyungezer.com.tr/ogz-public/public/content/2020/11/17/content_5fb3a61666bb8_69501.jpg')no-repeat center left/cover;
+}
+.split.right::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--right-bg-color);
+}
+.hover-left .left{
+  width: var(--hover-width);
+}
+.hover-left .right{
+  width: var(--other-width);
+}
+.hover-right .right{
+  width: var(--hover-width);
+}
+.hover-right .left{
+  width: var(--other-width);
+}
+@media (max-width: 800px) {
+  h1{
+    font-size: 2rem;
+    top: 30%;
+  }
+  .btn{
+    padding: 1.2rem;
+    width: 12rem;
+  }
+}
